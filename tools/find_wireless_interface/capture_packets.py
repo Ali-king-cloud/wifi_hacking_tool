@@ -1,6 +1,7 @@
-from scapy import all
+﻿from scapy import all
 from scapy.all import sniff
 from scapy.layers.dot11 import Dot11, Dot11Elt
+
 def capture_packets(interface):
     """
     Capture packets on the specified network interface.
@@ -13,24 +14,27 @@ def capture_packets(interface):
         list: A list of captured packets.
     """
     # Start capturing packets on the specified interface
-    sniff(iface=interface, prn=packet_callback, store=False)
-def packet_callback(packet):
+    results =sniff(iface= interface, prn = lambda p : print(p.summary()), store=True)
+    return results
+    
+def clean_results(results):
     """
-    Callback function to process each captured packet.
+    Clean the captured packet results.
 
     Args:
-        packet: The captured packet.
-    """
-    # Print the summary of the captured packet
+        results (list): A list of captured packets.
 
-    if packet.haslayer(Dot11):
-        if packet.type == 0 and packet.subtype == 8:  # Beacon frame
-            ssid = packet[Dot11Elt].info.decode()
-            print(f"SSID: {ssid}")
-        elif packet.type == 0 and packet.subtype == 4:  # Probe Response frame
-            ssid = packet[Dot11Elt].info.decode()
-            print(f"SSID: {ssid}")
-    print(packet.summary())
+    Returns:
+        list: A cleaned list of packets.
+    """
+    
+    cleaned_results = []
+    for packet in results:
+        if packet.haslayer(Dot11):
+            cleaned_results.append(packet)
+    return cleaned_results
+
+
 
 if __name__ == "__main__":
     interface = "Wi-Fi"  # Replace with your network interface
