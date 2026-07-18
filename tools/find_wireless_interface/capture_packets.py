@@ -15,11 +15,11 @@ def capture_packets(interface):
     Returns:
         list: A list of captured packets.
     """
+    results = []
     # Start capturing packets on the specified interface
-    # sniff(iface= interface, prn = lambda p : print(p.summary()), store=True)
+    sniff(iface= interface, prn = lambda p : print(p.summary()), store=True)
     
-    for packet in sniff(iface=interface):  # Capture 10 packets
-        if packet.summary().startswith()
+ 
     
 
 
