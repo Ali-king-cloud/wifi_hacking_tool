@@ -1,6 +1,8 @@
 ﻿from scapy import all
 from scapy.all import sniff
 from scapy.layers.dot11 import Dot11, Dot11Elt
+from prettytable import PrettyTable
+import os
 
 def capture_packets(interface):
     """
@@ -14,25 +16,11 @@ def capture_packets(interface):
         list: A list of captured packets.
     """
     # Start capturing packets on the specified interface
-    results =sniff(iface= interface, prn = lambda p : print(p.summary()), store=True)
-    return results
+    # sniff(iface= interface, prn = lambda p : print(p.summary()), store=True)
     
-def clean_results(results):
-    """
-    Clean the captured packet results.
-
-    Args:
-        results (list): A list of captured packets.
-
-    Returns:
-        list: A cleaned list of packets.
-    """
+    for packet in sniff(iface=interface):  # Capture 10 packets
+        if packet.summary().startswith()
     
-    cleaned_results = []
-    for packet in results:
-        if packet.haslayer(Dot11):
-            cleaned_results.append(packet)
-    return cleaned_results
 
 
 
