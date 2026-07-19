@@ -56,11 +56,23 @@ def capture_packets(interface):
      if packet.haslayer(IP):
         print("\n[IP Layer]")
         print(f"Source IP       : {packet[IP].src}")
+        print(f"Source Address  : {packet[IP].src}")
         print(f"Destination IP  : {packet[IP].dst}")
+        print(f"Destination Address: {packet[IP].dst}")
         print(f"Protocol Number : {packet[IP].proto}")
         print(f"TTL             : {packet[IP].ttl}")
         print(f"Version         : {packet[IP].version}")
         print(f"Header Length   : {packet[IP].ihl * 4} bytes")
+        print(f"Total Length    : {packet[IP].len} bytes")
+        print(f"Identification  : {packet[IP].id}")
+        print(f"Flags           : {packet[IP].flags}")
+        print(f"Fragment Offset : {packet[IP].frag}")
+        print(f"Checksum        : {packet[IP].chksum}")
+        print(f"Options         : {packet[IP].options}")
+        print(f"padding          : {packet[IP].len} - {packet[IP].ihl * 4} = {packet[IP].len - packet[IP].ihl * 4} bytes")   
+        
+        
+
         print(f"summary        : {packet[IP].summary()}")
 
     # -------------------- TCP ----------------------------
