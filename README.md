@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🛡️ Wi-Fi Security Toolkit
+# 🛡️ Wi-Fi Hacking Tool
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
 ![Scapy](https://img.shields.io/badge/Scapy-2.7.0-green?logo=scapy&logoColor=white)
@@ -475,8 +475,8 @@ SOFTWARE.
 
 **ALI IBRAHIM**
 
-- 📧 Email: _(Update with your email)_
-- 🐙 GitHub: _(Update with your GitHub profile)_
+- 📧 Email: alibraheem064@gmail.com
+- 🐙 GitHub: https://github.com/Ali-king-cloud
 
 ---
 
